@@ -1,0 +1,18 @@
+version: "2"
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - 7777:7777
+    volumes:
+      - ./src:/develop
+    networks:
+      - my-net
+
+networks:
+  my-net:
+    driver: bridge
