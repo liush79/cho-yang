@@ -7,11 +7,17 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 7777:7777
+      - 7777:80
     volumes:
-      - ./src:/develop
+     - ./app:/app
+#    environment:
+#     - FLASK_APP=main.py
+#     - FLASK_DEBUG=1
+#     - 'RUN=flask run --host=0.0.0.0 --port=80'
+#    command: flask run --host=0.0.0.0 --port=80
+#    command: bash -c "while true; do echo 'sleeping...' && sleep 10; done"
     networks:
-      - my-net
+     - my-net
 
 networks:
   my-net:
